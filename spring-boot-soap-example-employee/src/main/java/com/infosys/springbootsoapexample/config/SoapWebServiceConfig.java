@@ -30,7 +30,7 @@ public class SoapWebServiceConfig extends WsConfigurerAdapter {
         return new SimpleXsdSchema(new ClassPathResource("address.xsd"));
     }
 
-    @Bean(name = "address")
+    @Bean
     public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema addressSchema) {
         DefaultWsdl11Definition definition = new DefaultWsdl11Definition();
         definition.setSchema(addressSchema);

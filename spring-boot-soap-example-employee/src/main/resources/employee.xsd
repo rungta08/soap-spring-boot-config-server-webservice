@@ -1,0 +1,101 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://infosys.com/spring-boot-soap-example-address"
+           targetNamespace="http://infosys.com/spring-boot-soap-example-address"
+           elementFormDefault="qualified">
+
+    <xs:element name="getEmployeeByIdRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:int" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getEmployeeByIdResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="employee" type="tns:employee" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getEmployeeRequest">
+        <xs:complexType/>
+    </xs:element>
+    <xs:element name="getEmployeeResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="employee" type="tns:employee" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element> 
+    
+    <xs:element name="addEmployeeRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="firstname" type="xs:string" />
+            	<xs:element name="lastname" type="xs:string" />
+            	<xs:element name="gender" type="xs:string" />
+            	<xs:element name="phonenumbers" type="xs:long" />
+            	<xs:element name="email" type="xs:string" />
+            	<xs:element name="salary" type="xs:long" />
+            	<xs:element name="address" type="tns:address1" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="addEmployeeResponse">
+        <xs:complexType>
+            <xs:sequence>          
+                <xs:element name="id" type="xs:int" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="updateEmployeeRequest">
+        <xs:complexType>
+            <xs:sequence>
+               <xs:element name="employee" type="tns:employee" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="updateEmployeeResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="employee" type="tns:employee" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="deleteEmployeeRequest">
+        <xs:complexType>
+            <xs:sequence>
+               	<xs:element name="id" type="xs:int" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="deleteEmployeeResponse">
+        <xs:complexType/>
+
+    </xs:element> 
+    
+    <xs:complexType name="address1">
+        <xs:sequence>
+            <xs:element name="city" type="xs:string" />
+            <xs:element name="country" type="xs:string" />
+            <xs:element name="id" type="xs:int" />
+            <xs:element name="zipcode" type="xs:int" />
+        </xs:sequence>
+    </xs:complexType> 
+    
+    <xs:complexType name="employee">
+        <xs:sequence>
+        	<xs:element name="id" type="xs:int" />
+            <xs:element name="firstname" type="xs:string" />
+            <xs:element name="lastname" type="xs:string" />
+            <xs:element name="gender" type="xs:string" />
+            <xs:element name="phonenumbers" type="xs:long" />
+            <xs:element name="email" type="xs:string" />
+            <xs:element name="salary" type="xs:long" />
+            <xs:element name="address" type="tns:address1" />
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
